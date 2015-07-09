@@ -1,0 +1,4 @@
+DirectoryIndex page/index.html
+<Files ~ ".(git*|csk)$">
+	deny from all
+</Files>
