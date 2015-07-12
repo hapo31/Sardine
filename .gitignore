@@ -5,7 +5,8 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
-#Resource
+# Resource
+rs
 rs.php
 
 # Recycle Bin used on file shares

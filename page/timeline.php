@@ -36,11 +36,18 @@
 			use Abraham\TwitterOAuth\TwitterOAuth;
 		  	require_once 'rs';
 
+		  	if(!isset($_COOKIE["access_token"]) || $_COOKIE["access_token"] == "" ||
+		  	   !isset($_COOKIE["access_token_secret"]) || $_COOKIE["access_token_secret"] == "")
+		  	{
+		  		header("location: OAuth.php");
+		  		return;
+		  	}
+
 		  	$tw_obj = new TwitterOAuth(
 		  			consumer_key,
 		  			consumer_secret,
-		  			access_token,
-		  			access_token_secret
+		  			$_COOKIE["access_token"],
+		  			$_COOKIE["access_token_secret"]
 		  		);
 
 		  	$option = array( 'count' => 20 );
