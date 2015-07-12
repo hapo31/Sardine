@@ -51,6 +51,11 @@
 		  			$option
 			);
 			$timeline_json = json_decode($tw_request, true);
+			if(in_array('errors', $timeline_json))
+			{
+				print($timeline_json['errors']);
+				return;
+			}
 			foreach ($timeline_json as $key => $value) {
 				print('<tr>');
 				//icon
