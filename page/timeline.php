@@ -20,7 +20,7 @@
   <body>
 
   <div class="container">
-  	<table class="table">
+  	<table class="table table-striped table-bordered">
 	  	<thead>
 	  		<tr>
 	  			<th> </th>
@@ -32,44 +32,42 @@
 	  	<tbody>
 	  	<!-- php -->
 		<?php
-			require_once 'twitteroauth/src/TwitterOAuth.php';
+			require_once 'twitteroauth/autoload.php';
+			use Abraham\TwitterOAuth\TwitterOAuth;
 		  	require_once 'rs';
 
 		  	$tw_obj = new TwitterOAuth(
-		  			$consumer_key,
-		  			$consumer_secret,
-		  			$access_token,
-		  			$access_token_secret
+		  			consumer_key,
+		  			consumer_secret,
+		  			access_token,
+		  			access_token_secret
 		  		);
-		  	$api_url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-			$method = 'GET';
+
 		  	$option = array( 'count' => 20 );
 
-		  	$tw_request = $tw_obj->OAuth_Request(
-		  			$api_url,
-		  			$method,
-		  			$option
-			);
-			$timeline_json = json_decode($tw_request, true);
-			if(in_array('errors', $timeline_json))
-			{
-				print($timeline_json['errors']);
-				return;
-			}
-			foreach ($timeline_json as $key => $value) {
+		  	$tw_request = $tw_obj->get("statuses/home_timeline", $option);
+			// if(in_array('errors', $timeline_json))
+			// {
+			// 	print($timeline_json['errors']);
+			// 	return;
+			// }
+			foreach ($tw_request as $key => $value) {
 				print('<tr>');
 				//icon
 				print('	<td>');
+				print('<img src='. $value->user->profile_image_url_https.'>');
 				print('	</td>');
 				//screen name
 				print('	<td>');
+				print($value->user->screen_name);
 				print('	</td>');
 				//text
 				print('	<td>');
-				print($value["text"]);
+				print($value->text);
 				print('	</td>');
 				//date
 				print('	<td>');
+				print($value->created_at);
 				print('	</td>');
 				print('</tr>');
 			}
