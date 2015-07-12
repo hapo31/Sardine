@@ -18,11 +18,60 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <h2>
-      <a href="page/timeline.php">TimeLine </a>
-    </h2>
 
+  <div class="container">
+  	<table class="table">
+	  	<thead>
+	  		<tr>
+	  			<th> </th>
+	  			<th>@</th>
+	  			<th>text</th>
+	  			<th>date</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  	<!-- php -->
+		<?php
+			require_once 'twitteroauth/src/TwitterOAuth.php';
+		  	require_once 'rs';
+
+		  	$tw_obj = new TwitterOAuth(
+		  			$consumer_key,
+		  			$consumer_secret,
+		  			$access_token,
+		  			$access_token_secret
+		  		);
+		  	$api_url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
+			$method = 'GET';
+		  	$option = array( 'count' => 20 );
+
+		  	$tw_request = $tw_obj->OAuth_Request(
+		  			$api_url,
+		  			$method,
+		  			$option
+			);
+			$timeline_json = json_decode($tw_request, true);
+			foreach ($timeline_json as $key => $value) {
+				print('<tr>');
+				//icon
+				print('	<td>');
+				print('	</td>');
+				//screen name
+				print('	<td>');
+				print('	</td>');
+				//text
+				print('	<td>');
+				print($value["text"]);
+				print('	</td>');
+				//date
+				print('	<td>');
+				print('	</td>');
+				print('</tr>');
+			}
+		?>
+		</tbody>
+ 	 </table>
+  </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

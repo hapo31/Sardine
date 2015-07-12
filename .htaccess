@@ -1,4 +1,9 @@
 DirectoryIndex page/index.html
-<Files ~ ".(git*|csk)$">
+
+<Files ~ ".(git*)$">
+	deny from all
+</Files>
+
+<Files "rs">
 	deny from all
 </Files>
