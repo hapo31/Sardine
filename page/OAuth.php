@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <http>
-	<head>
+<head>
+	<title>Sardine OAuth</title>
 		<?php
 			require_once "twitteroauth/autoload.php";
 			use Abraham\TwitterOAuth\TwitterOAuth;
@@ -8,7 +10,7 @@
 			$callback = callback;
 
 			session_start();
-			//cookieがないか無効ならば発行
+
 			$twitter_oauth = new TwitterOAuth(
 					consumer_key,
 					consumer_secret
@@ -21,5 +23,5 @@
 			header('location: '.$url);
 			return;
 		?>
-	</head>
+</head>
 </http>

@@ -7,9 +7,9 @@
 	<?php
 		session_start();
 
-		require_once("twitteroauth/autoload.php");
+		require_once "twitteroauth/autoload.php";
 		use Abraham\TwitterOAuth\TwitterOAuth;
-		require_once("rs");
+		require_once "rs";
 
 		if(	isset($_GET["oauth_verifier"]) && $_GET["oauth_verifier"] != "" &&
 			isset($_REQUEST["oauth_token"]) && $_REQUEST["oauth_token"] === $_SESSION["oauth_token"]
@@ -22,7 +22,7 @@
 		else
 		{
 			print("<h1>sorry, twitter oauth error.</h1><br>");
-			print("<a href='index.html>back to topmenu</a>'");
+			print("<a href='index.html'>back to topmenu</a>");
 			return;
 		}
 
