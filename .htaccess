@@ -7,3 +7,7 @@ DirectoryIndex jump.php
 <Files "rs">
 	deny from all
 </Files>
+
+<Files "config">
+	deny from all
+</Files>
