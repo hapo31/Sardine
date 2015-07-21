@@ -8,7 +8,7 @@
     <title>Sardine - Unioned Twitter Account</title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,35 +18,14 @@
     <![endif]-->
   </head>
   <body>
-    <h1><div id="welcome">Hello </div></h1>
+    <h1>あなたが操作できるアカウント一覧</h1>
     <h2>
-    <div id="menu">
-      <a href="timeline.php">TimeLine </a><br>
-      <a href="accounts.php">Account </a><br>
-      <a href="OAuth.php">OAuth </a>
-    </div>
+      
     </h2>
-  <script type="text/javascript" src="js/GetCookies.js">
-    document.getElementById("welcome").textContent = "test";
-  </script>
-  <script type="text/javascript">
-  <!-- 
-        var username = GetCookie("user");
-        if(username == null)
-        {
-            document.getElementById("welcome").textContent = "ログインしてください";
-            document.getElementById("menu").innerHTML = "<button type='button' class='btn btn-primary btn-lg' onclick=window.location='OAuth.php?mode=client' >認証</button>";
-        }
-        else
-        {
-            document.getElementById("welcome").textContent = "ようこそ, " + username + "さん";
-        }
-    // -->
-   </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

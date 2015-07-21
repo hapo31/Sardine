@@ -1,4 +1,4 @@
-DirectoryIndex page/index.html
+DirectoryIndex jump.php
 
 <Files ~ ".(git*)$">
 	deny from all

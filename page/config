@@ -1,0 +1,6 @@
+<?php
+	define('dburl', 'localhost');
+	define('dbname', 'sardinedb');
+	define('dbuser', 'root');
+	define('dbpass', '');
+?>
